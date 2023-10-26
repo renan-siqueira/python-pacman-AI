@@ -3,6 +3,11 @@ from stable_baselines3 import DQN
 from stable_baselines3.common.evaluation import evaluate_policy
 from stable_baselines3.common.vec_env import DummyVecEnv
 from gym.wrappers import FrameStack, GrayScaleObservation, ResizeObservation
+import torch
+
+print(torch.cuda.is_available())
+device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+print(f"PyTorch is using: {device}")
 
 
 def train_pacman():
